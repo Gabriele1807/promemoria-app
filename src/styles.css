@@ -1,0 +1,269 @@
+/* Pochi colori, caratteri grandi (minimo 20px), solo proprietà logiche
+   (inline/block) così il layout si specchia da solo in arabo (RTL). */
+:root {
+  --colore-sfondo: #ffffff;
+  --colore-testo: #1a1a1a;
+  --colore-principale: #1f4e79;
+  --colore-principale-testo: #ffffff;
+  --colore-secondario: #5a5a5a;
+  --colore-pericolo: #a61b1b;
+  --colore-ok: #1b6e2d;
+
+  --testo-base: 22px;
+  --testo-titolo: 34px;
+  --testo-bottone: 28px;
+
+  --spazio: 20px;
+  --raggio: 16px;
+
+  font-family: system-ui, 'Segoe UI', Roboto, 'Noto Sans', 'Noto Sans Arabic', sans-serif;
+  font-size: var(--testo-base);
+  line-height: 1.5;
+  color: var(--colore-testo);
+  background: var(--colore-sfondo);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--colore-sfondo);
+}
+
+/* Colonna centrale: in alto il pulsante della lingua, sotto la schermata che occupa il resto. */
+.app {
+  display: flex;
+  flex-direction: column;
+  max-inline-size: 640px;
+  min-block-size: 100vh;
+  margin-inline: auto;
+}
+
+.barra-lingua {
+  padding: var(--spazio) var(--spazio) 0;
+  padding-block-start: max(var(--spazio), env(safe-area-inset-top));
+}
+
+.schermata {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--spazio);
+  padding: var(--spazio);
+  padding-block-end: max(var(--spazio), env(safe-area-inset-bottom));
+}
+
+.data-oggi {
+  margin: 0;
+  color: var(--colore-secondario);
+  text-align: start;
+}
+
+.titolo {
+  margin: 0;
+  font-size: var(--testo-titolo);
+  text-align: start;
+}
+
+.messaggio-vuoto {
+  margin: 0;
+  padding-block: calc(var(--spazio) * 2);
+  font-size: var(--testo-base);
+  color: var(--colore-secondario);
+  text-align: center;
+}
+
+.bottone-grande {
+  display: block;
+  inline-size: 100%;
+  min-block-size: 72px;
+  padding: var(--spazio);
+  border: none;
+  border-radius: var(--raggio);
+  font: inherit;
+  font-size: var(--testo-bottone);
+  font-weight: 700;
+  color: var(--colore-principale-testo);
+  background: var(--colore-principale);
+  cursor: pointer;
+}
+
+.bottone-grande:focus-visible {
+  outline: 4px solid var(--colore-testo);
+  outline-offset: 3px;
+}
+
+.bottone-aggiungi {
+  margin-block-start: auto;
+}
+
+/* In fondo alla schermata: "Impostazioni" (secondario) sopra "+ Aggiungi" (principale). */
+.azioni {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-block-start: auto;
+}
+
+.bottone-secondario {
+  color: var(--colore-principale);
+  background: transparent;
+  border: 3px solid var(--colore-principale);
+}
+
+.bottone-pericolo {
+  background: var(--colore-pericolo);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spazio);
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.etichetta {
+  font-weight: 700;
+}
+
+.input {
+  inline-size: 100%;
+  min-block-size: 64px;
+  padding: 12px 16px;
+  border: 3px solid var(--colore-secondario);
+  border-radius: var(--raggio);
+  font: inherit;
+  font-size: var(--testo-base);
+  color: var(--colore-testo);
+  background: var(--colore-sfondo);
+}
+
+.input:focus-visible {
+  outline: 4px solid var(--colore-principale);
+  outline-offset: 2px;
+}
+
+.scelta-tipo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bottone-scelta {
+  color: var(--colore-principale);
+  background: transparent;
+  border: 3px solid var(--colore-principale);
+}
+
+.bottone-scelta[aria-pressed="true"] {
+  color: var(--colore-principale-testo);
+  background: var(--colore-principale);
+}
+
+.errore {
+  margin: 0;
+  padding: 12px 16px;
+  border-radius: var(--raggio);
+  font-weight: 700;
+  color: var(--colore-pericolo);
+  border: 3px solid var(--colore-pericolo);
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spazio);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.carta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: var(--spazio);
+  border: 3px solid var(--colore-principale);
+  border-radius: var(--raggio);
+}
+
+.carta p {
+  margin: 0;
+}
+
+.carta-ora {
+  font-size: var(--testo-titolo);
+  font-weight: 700;
+}
+
+.carta-titolo {
+  font-size: var(--testo-bottone);
+}
+
+.carta-tipo,
+.carta-note {
+  color: var(--colore-secondario);
+}
+
+.sezione {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sezione p {
+  margin: 0;
+  text-align: start;
+}
+
+.sottotitolo {
+  margin: 0;
+  font-size: var(--testo-bottone);
+  text-align: start;
+}
+
+.riga-permesso {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: var(--spazio);
+  border: 3px solid var(--colore-secondario);
+  border-radius: var(--raggio);
+}
+
+.riga-permesso p {
+  margin: 0;
+}
+
+.riga-permesso-nome {
+  font-weight: 700;
+}
+
+.stato-ok {
+  font-weight: 700;
+  color: var(--colore-ok);
+}
+
+.stato-da-sistemare {
+  font-weight: 700;
+  color: var(--colore-pericolo);
+}
+
+.passi {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding-inline-start: 1.6em;
+  text-align: start;
+}

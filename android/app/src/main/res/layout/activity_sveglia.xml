@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Schermata della sveglia. Nessun testo qui: titolo e pulsanti arrivano dall'app (src/i18n) e li imposta SvegliaActivity. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1F4E79"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/titolo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/ora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="48dp"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="64sp" />
+
+    <Button
+        android:id="@+id/pulsanteFatto"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:backgroundTint="#FFFFFF"
+        android:textColor="#1F4E79"
+        android:textAllCaps="false"
+        android:textSize="34sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/pulsanteRimanda"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#5C85AD"
+        android:textColor="#FFFFFF"
+        android:textAllCaps="false"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+</LinearLayout>

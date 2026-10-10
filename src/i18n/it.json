@@ -1,0 +1,99 @@
+{
+  "app": {
+    "nome": "Promemoria"
+  },
+  "lingua": {
+    "cambia": "عربي / Italiano"
+  },
+  "oggi": {
+    "titolo": "Oggi",
+    "nessunAppuntamento": "Nessun appuntamento oggi",
+    "aggiungi": "+ Aggiungi",
+    "modifica": "Modifica",
+    "impostazioni": "Impostazioni",
+    "caricamento": "Caricamento…"
+  },
+  "impostazioni": {
+    "titolo": "Impostazioni",
+    "indietro": "Indietro",
+    "batteria": {
+      "titolo": "Batteria: per non perdere le sveglie",
+      "spiegazione": "Alcuni telefoni, soprattutto i Samsung, spengono le app per risparmiare batteria. Così una sveglia o un avviso può non arrivare. Per evitarlo, togli Promemoria dal risparmio batteria.",
+      "passo1": "Premi il pulsante qui sotto.",
+      "passo2": "Cerca «Promemoria» nell'elenco e scegli «Non ottimizzare» (o «Senza restrizioni»).",
+      "passo3": "Se non la trovi, su Samsung: Impostazioni, poi Batteria, poi Limiti di utilizzo in background. Apri «App mai in stop» (o la voce simile) e aggiungi Promemoria.",
+      "esclusa": "Tutto a posto: Promemoria è già escluso dal risparmio batteria.",
+      "nonEsclusa": "Promemoria è ancora soggetto al risparmio batteria.",
+      "apri": "Apri impostazioni batteria",
+      "nonSupportato": "Questo telefono non apre la pagina da qui. Aprila a mano: Impostazioni, poi Batteria."
+    },
+    "permessi": {
+      "titolo": "Cosa è attivo",
+      "notifiche": "Notifiche",
+      "allarmi": "Allarmi all'ora esatta",
+      "schermoIntero": "Sveglia a schermo intero",
+      "attivo": "Attivo",
+      "daAttivare": "Da attivare"
+    }
+  },
+  "form": {
+    "titoloNuovo": "Nuovo appuntamento",
+    "titoloModifica": "Modifica appuntamento",
+    "campoTitolo": "Cosa devo ricordarti?",
+    "campoData": "Giorno",
+    "campoOra": "Ora",
+    "campoNote": "Note (se vuoi)",
+    "campoTipo": "Come ti avviso?",
+    "campoAnticipo": "Quanto prima?",
+    "salva": "Salva",
+    "annulla": "Annulla",
+    "elimina": "Elimina",
+    "confermaElimina": "Vuoi davvero eliminare questo appuntamento?",
+    "siElimina": "Sì, elimina",
+    "noTieni": "No, tienilo",
+    "erroreTitolo": "Scrivi cosa devo ricordarti",
+    "erroreData": "Scegli il giorno",
+    "erroreOra": "Scegli l'ora",
+    "erroreOrarioPassato": "L'orario dell'avviso è già passato. Scegli un orario più avanti.",
+    "erroreSalvataggio": "Non sono riuscito a salvare. Riprova."
+  },
+  "tipo": {
+    "notifica": "Solo notifica",
+    "sveglia": "Solo sveglia",
+    "entrambi": "Notifica e sveglia"
+  },
+  "notifiche": {
+    "canale": "Promemoria",
+    "canaleDescrizione": "Avvisi dei tuoi appuntamenti",
+    "corpoOra": "È l'ora del tuo appuntamento: {{ora}}",
+    "corpoAnticipo": "Tra {{quanto}} hai un appuntamento, alle {{ora}}",
+    "quanto": {
+      "15": "15 minuti",
+      "30": "30 minuti",
+      "60": "1 ora",
+      "120": "2 ore"
+    }
+  },
+  "sveglia": {
+    "fatto": "Fatto",
+    "rimanda": "Rimanda 10 minuti",
+    "canale": "Sveglie",
+    "canaleDescrizione": "Sveglie dei tuoi appuntamenti",
+    "nonSpenta": "Sveglia non spenta"
+  },
+  "avviso": {
+    "apriImpostazioni": "Apri impostazioni",
+    "schermoIntero": "Per vedere la sveglia a schermo intero quando il telefono è bloccato, devi consentirlo. Premi il pulsante e attiva «Consenti».",
+    "allarmiEsatti": "Il telefono non permette alla sveglia di suonare all'ora esatta. Premi il pulsante e attiva «Sveglie e promemoria».",
+    "permessoNegato": "Le notifiche sono bloccate, quindi il telefono non ti avviserà. Per sbloccarle: apri le Impostazioni del telefono, poi App, poi Promemoria, poi Notifiche, e attivale.",
+    "riprova": "Riprova",
+    "erroreNotifica": "L'appuntamento è salvato, ma non sono riuscito a programmare l'avviso. Riapri l'app per riprovare."
+  },
+  "anticipo": {
+    "0": "All'ora esatta",
+    "15": "15 minuti prima",
+    "30": "30 minuti prima",
+    "60": "1 ora prima",
+    "120": "2 ore prima"
+  }
+}

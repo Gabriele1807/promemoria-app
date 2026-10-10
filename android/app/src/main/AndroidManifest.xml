@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode|navigation|density"
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBarLaunch"
+            android:launchMode="singleTask"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <!-- Sveglia: lo scatto dell'allarme avvia il servizio che suona. Nessun componente è esportato. -->
+        <receiver
+            android:name=".sveglia.SvegliaReceiver"
+            android:exported="false" />
+
+        <!-- Dopo riavvio, cambio ora/fuso o aggiornamento dell'app: rimette le sveglie nell'AlarmManager. -->
+        <receiver
+            android:name=".sveglia.AvvioReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".sveglia.SvegliaService"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback" />
+
+        <!-- Schermata a schermo intero: si apre sopra il blocco e accende lo schermo.
+             Task separato, così non si mescola con l'app e non resta tra le app recenti. -->
+        <activity
+            android:name=".sveglia.SvegliaActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:showWhenLocked="true"
+            android:taskAffinity=""
+            android:theme="@style/TemaSveglia"
+            android:turnScreenOn="true" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"></meta-data>
+        </provider>
+    </application>
+
+    <!-- Permissions -->
+
+    <!-- Nessun permesso INTERNET: l'app non usa la rete e i dati restano sul telefono. -->
+
+    <!-- Notifiche (Android 13+: il permesso va anche chiesto a runtime, lo fa l'app). -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- Allarmi esatti: USE_EXACT_ALARM (Android 13+) è concesso in automatico, senza azioni dell'utente. -->
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <!-- Su Android 12 esiste solo SCHEDULE_EXACT_ALARM; dal 13 in poi basta USE_EXACT_ALARM. -->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" android:maxSdkVersion="32" />
+
+    <!-- Sveglia: servizio in primo piano per la suoneria in loop (tipo "riproduzione multimediale"). -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+    <!-- Sveglia: vibrazione, schermo acceso e ripristino dopo il riavvio (gli ultimi due arrivano anche dal plugin notifiche). -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- Sveglia: aprire la schermata a schermo intero sopra il blocco (da Android 14 può richiedere il consenso dell'utente). -->
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+</manifest>
